@@ -1,8 +1,8 @@
-import os
 
 def readFile(fileName):
-    os.chdir('C:\Users\Namrata Dhuru\workspace\CheckingFileStructuew')
     newFile= open ('dataProcessed.txt','w') 
+    
+    # We need to add header before details inserted to the file
     newFile.write('Name|Middle|DOB|SSN|Filepath\n')
     with open (fileName) as files:
         lines = files.readlines()
@@ -17,7 +17,7 @@ def SplitLines(lines,newFile):
         if len(words)>6:    
             processingData(words[6],newFile, eachLine)
       
-#this will recieved 6th position i.e.Namrata,Dhuru 11-02-1990 xxx-xx-xxxx
+#this will received 6th position i.e.Namrata,Dhuru 11-02-1990 xxx-xx-xxxx
 def processingData(data,newFile,eachLine):
     
     name=[]
@@ -30,7 +30,7 @@ def processingData(data,newFile,eachLine):
         name = dataFields[0] 
         dob= dataFields[-2]
         ssn=dataFields[-1]
-        line=eachLine#Namrata,Dhur
+        line=eachLine
         if len(dataFields)>3:
             middle=dataFields[1]
         else:
